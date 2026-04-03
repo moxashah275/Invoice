@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useReactToPrint } from "react-to-print";
-import InvoiceForm from "./InvoiceForm";
-import InvoicePreview from "./InvoicePreview";
+import InvoiceForm from "./InvoiceForm"; 
+import InvoicePreview from "./InvoicePreview"; 
 
 export default function Invoice() {
   const invoiceRef = useRef(null);
@@ -14,13 +14,13 @@ export default function Invoice() {
     invoiceNo: "123456789231456",
     date: "2025-08-22",
     dueDate: "2025-09-22",
-    address: "401 medani jain hostel, navjivan press road, income tax cross road, Ahmedabad, gujarat, india-380009",
-    billTo: "401 medani jain hostel, navjivan press road, income tax cross road, Ahmedabad, gujarat, india-380009",
+    clientName: "Client Business Name",
+    billTo: "Line 1, Address\nLine 2, City and State\nIndia - PinCode",
     items: [
       { name: "App Development", qty: 1, price: 0, discount: 0 },
       { name: "Web Development", qty: 1, price: 0, discount: 0 },
     ],
-    notes: ["Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet", "Lorem ipsum dolor sit amet"],
+    notes: "Thank you for your business!\nPayment should be made within due date.",
     serverYear: 1,
     domainYear: 3,
     lastPaid: 1000,
@@ -94,13 +94,6 @@ export default function Invoice() {
   const handleDownload = useReactToPrint({
     contentRef: invoiceRef,
     documentTitle: `${data.docType}-${data.invoiceNo}`,
-    pageStyle: `
-      @page { size: A4; margin: 0; }
-      @media print {
-        body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-        img { image-rendering: -webkit-optimize-contrast !important; image-rendering: crisp-edges !important; }
-      }
-    `,
   });
 
   return (

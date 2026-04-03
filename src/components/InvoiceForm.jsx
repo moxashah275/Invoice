@@ -67,12 +67,25 @@ export default function InvoiceForm({ data, setData, initialData, handleInputCha
       </div>
 
       <div className="mt-3">
-        <label className="font-semibold text-gray-600">Billing Address (To)</label>
+        <label className="font-semibold text-gray-600">Client Name</label>
+        <input
+          type="text"
+          name="clientName"
+          value={data.clientName}
+          onChange={handleInputChange}
+          placeholder="Enter Client/Business Name"
+          className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2"
+        />
+      </div>
+
+      <div className="mt-3">
+        <label className="font-semibold text-gray-600">Client Address (To)</label>
         <textarea
           name="billTo"
           value={data.billTo}
           onChange={handleInputChange}
           rows="3"
+          placeholder="Enter Client Address"
           className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs"
         ></textarea>
       </div>
@@ -168,6 +181,18 @@ export default function InvoiceForm({ data, setData, initialData, handleInputCha
           }
           className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2"
         />
+      </div>
+
+      <div className="mt-3">
+        <label className="font-semibold text-gray-600">Notes (One per line)</label>
+        <textarea
+          name="notes"
+          value={data.notes}
+          onChange={handleInputChange}
+          rows="3"
+          placeholder="Enter notes here. Leave empty to hide notes from invoice."
+          className="w-full mt-1 border border-gray-300 rounded-md px-3 py-2 text-xs"
+        ></textarea>
       </div>
 
       <button

@@ -1,5 +1,5 @@
 import React from 'react';
-import Invoice from './components/Invoice';
+import Invoice from './components/Invoice'; 
 
 function App() {
   return (
